@@ -2,7 +2,7 @@
 
 namespace JeffersonGoncalves\FilamentCommerce\Currency\Resources\Currencies\Tables;
 
-use Filament\Actions;
+use Filament\Tables\Actions;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -26,11 +26,11 @@ class CurrenciesTable
                     ->toggleable(),
             ])
             ->defaultSort('code')
-            ->recordActions([
+            ->actions([
                 Actions\EditAction::make(),
                 Actions\DeleteAction::make(),
             ])
-            ->toolbarActions([
+            ->bulkActions([
                 Actions\BulkActionGroup::make([
                     Actions\DeleteBulkAction::make(),
                 ]),
