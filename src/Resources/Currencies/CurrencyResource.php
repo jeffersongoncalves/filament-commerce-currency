@@ -2,8 +2,10 @@
 
 namespace JeffersonGoncalves\FilamentCommerce\Currency\Resources\Currencies;
 
-use Filament\Forms\Form;
+use BackedEnum;
 use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use JeffersonGoncalves\Commerce\Currency\Models\Currency;
 use JeffersonGoncalves\FilamentCommerce\Currency\CommerceCurrencyPlugin;
@@ -17,7 +19,7 @@ class CurrencyResource extends Resource
 {
     protected static ?string $model = Currency::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-banknotes';
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedBanknotes;
 
     protected static ?string $recordTitleAttribute = 'name';
 
@@ -30,9 +32,9 @@ class CurrencyResource extends Resource
         }
     }
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return CurrencyForm::configure($form);
+        return CurrencyForm::configure($schema);
     }
 
     public static function table(Table $table): Table

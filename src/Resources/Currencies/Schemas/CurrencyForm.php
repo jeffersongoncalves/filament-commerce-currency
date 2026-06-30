@@ -2,16 +2,17 @@
 
 namespace JeffersonGoncalves\FilamentCommerce\Currency\Resources\Currencies\Schemas;
 
-use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Form;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Schema;
 
 class CurrencyForm
 {
-    public static function configure(Form $form): Form
+    public static function configure(Schema $schema): Schema
     {
-        return $form
-            ->schema([
+        return $schema
+            ->columns(null)
+            ->components([
                 Section::make('Details')
                     ->schema([
                         TextInput::make('code')
